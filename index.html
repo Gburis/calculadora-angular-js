@@ -1,0 +1,38 @@
+<html ng-app="calc">
+    <header>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>calculadora</title>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+            <link rel="stylesheet"  href="css/style.css">
+            <script src="js/lib/angular.min.js"></script>
+            <script src="js/lib/angular-route.min.js"></script>
+            <script src="js/directives/directives.js"></script>
+            <script src="js/main.js"></script> 
+            <script src="js/controller/controller.js"></script>
+    </header>
+    <body ng-controller="buttons">
+        <div class="container">
+
+            <view-calc n="{{value}}"></view-calc>
+
+            <div class="row btn-calc">
+                <operation ng-repeat="operation in operations" action="write(operation)" operation= "{{operation}}"> </operation>
+
+                <button-number ng-repeat="button in buttons" action="write(button)" number="{{button}}"></button-number>
+
+                <clear clear="clear()" delete="delete()"> </clear>
+            </div>
+
+            <div class="row row-send">
+                <send send="send()"> </send>
+            </div>
+
+            <div class="row">
+                <p ng-show="mensagem.length" class="alert alert-info col-md-10 text-center">{{mensagem}}</p>
+            </div>
+        </div>
+    </body>
+</html>
